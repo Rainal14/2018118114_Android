@@ -15,4 +15,16 @@
         android:layout_height="wrap_content"
         android:text="拨打电话" />
 
+    <Button
+        android:id="@+id/button_getData"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="获取数据" />
+
+    <Button
+        android:id="@+id/button_sendDataToLastActivity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="传递数据给上一个活动并返回" />
+
 </LinearLayout>

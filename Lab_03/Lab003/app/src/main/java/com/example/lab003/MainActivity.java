@@ -1,10 +1,12 @@
 package com.example.lab003;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -12,6 +14,20 @@ import android.widget.Button;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        switch (requestCode) {
+            case 1:
+                if(resultCode == RESULT_OK) {
+                    String returnedData = data.getStringExtra("data_return");
+                    Log.d("MainActivity", returnedData);
+                }
+                break;
+            default:
+        }
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +66,26 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent("com.example.activitytest.ACTION_START");
                 intent.addCategory("com.example.activitytest.MY_CATEGORY");
                 startActivity(intent);
+            }
+        });
+
+        Button button5 = findViewById(R.id.button_sendData);
+        button5.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                String data = "王子健最帅";
+                Intent intent = new Intent(MainActivity.this, TestIntentActivity.class);
+                intent.putExtra("extra_data", data);
+                startActivity(intent);
+            }
+        });
+
+        Button button6 = findViewById(R.id.button_getData);
+        button6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, TestIntentActivity.class);
+                startActivityForResult(intent, 1);
             }
         });
     }

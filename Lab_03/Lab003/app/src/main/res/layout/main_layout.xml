@@ -27,4 +27,16 @@
         android:layout_height="wrap_content"
         android:text="测试ImplicitIntent" />
 
+    <Button
+        android:id="@+id/button_sendData"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="传递数据(字符串)给活动2并打开" />
+
+    <Button
+        android:id="@+id/button_getData"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="获取返回数据" />
+
 </LinearLayout>
