@@ -9,4 +9,10 @@
         android:layout_height="wrap_content"
         android:text="隐式intent：跳转到百度" />
 
+    <Button
+        android:id="@+id/button_tel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="拨打电话" />
+
 </LinearLayout>

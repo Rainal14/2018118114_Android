@@ -15,12 +15,22 @@ public class TestIntentActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test_intent);
 
-        Button button1 = findViewById(R.id.button_baidu);
+        Button button1 = findViewById(R.id.button_baidu);  //turn to http://www.baidu.com
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(Intent.ACTION_VIEW);
                 intent.setData(Uri.parse("http://www.baidu.com"));
+                startActivity(intent);
+            }
+        });
+
+        Button button2 = findViewById(R.id.button_tel);
+        button2.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                Intent intent = new Intent(Intent.ACTION_DIAL);
+                intent.setData(Uri.parse("tel:10086"));
                 startActivity(intent);
             }
         });
