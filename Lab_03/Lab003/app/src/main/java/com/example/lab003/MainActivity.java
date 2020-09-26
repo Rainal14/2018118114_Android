@@ -3,6 +3,7 @@ package com.example.lab003;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -16,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_layout);
+
         Button button1 = findViewById(R.id.button_1);  //button for test
         button1.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -23,11 +25,31 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(MainActivity.this, "你点击了按钮1", Toast.LENGTH_SHORT).show();
             }
         });
-        Button button2 = findViewById(R.id.button_exit);   //Button for exit
+
+        Button button2 = findViewById(R.id.button_exit);   //button for exit
         button2.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
                 finish();
+            }
+        });
+
+        Button button3 = findViewById(R.id.button_testExplicitIntent); //button for testing explicit intent
+        button3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, TestIntentActivity.class);
+                startActivity(intent);       //start a activity
+            }
+        });
+
+        Button button4 = findViewById(R.id.button_testImplicitIntent); //button for testing implicit intent
+        button4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent("com.example.activitytest.ACTION_START");
+                intent.addCategory("com.example.activitytest.MY_CATEGORY");
+                startActivity(intent);
             }
         });
     }

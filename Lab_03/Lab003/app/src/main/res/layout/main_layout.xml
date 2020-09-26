@@ -7,11 +7,24 @@
         android:id="@+id/button_1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="按钮1" />
+        android:text="按钮1(测试Toast)" />
 
     <Button
         android:id="@+id/button_exit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="退出按钮" />
+
+    <Button
+        android:id="@+id/button_testExplicitIntent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="测试ExplicitIntent" />
+
+    <Button
+        android:id="@+id/button_testImplicitIntent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="测试ImplicitIntent" />
+
 </LinearLayout>

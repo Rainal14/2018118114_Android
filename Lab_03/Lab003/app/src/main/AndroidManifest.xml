@@ -9,7 +9,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity"
+        <activity
+            android:name=".TestIntentActivity"
+            android:label="显式与隐式Intent测试">
+            <intent-filter>
+                <action android:name="com.example.activitytest.ACTION_START" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="com.example.activitytest.MY_CATEGORY" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".MainActivity"
             android:label="WZJ_APP">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
