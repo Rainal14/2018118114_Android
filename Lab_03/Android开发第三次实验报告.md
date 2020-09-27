@@ -44,3 +44,24 @@ button7.setOnClickListener(new View.OnClickListener() {
 
 ![standard.PNG](https://github.com/Rainal14/2018118114_Android/blob/homework/Lab_03/Lab03_pic/standard.PNG?raw=true)
 
+### 2、singleTop启动模式
+
+1）在AndroidManifest.xml中修改启动模式为singleTop
+
+```xml
+<activity
+            android:name=".MainActivity"
+            android:launchMode="singleTop"
+            android:label="WZJ_APP">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+```
+
+
+
+2）启动虚拟机，多次点击按钮，logcat不会出现新的打印信息
+
+![singleTop.PNG](https://github.com/Rainal14/2018118114_Android/blob/homework/Lab_03/Lab03_pic/singleTop.PNG?raw=true)
