@@ -12,10 +12,16 @@ import android.widget.Button;
 public class TestIntentActivity extends AppCompatActivity {
 
     @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Log.d("TestIntentActivity", "onDestroy");
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test_intent);
-
+        Log.d("TestIntentActivity", this.toString());
         Button button1 = findViewById(R.id.button_baidu);  //turn to http://www.baidu.com
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
