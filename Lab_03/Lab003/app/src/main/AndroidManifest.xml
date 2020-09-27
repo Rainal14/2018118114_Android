@@ -19,6 +19,7 @@
         </activity>
         <activity
             android:name=".TestIntentActivity"
+            android:launchMode="singleInstance"
             android:label="显式与隐式Intent测试">
             <intent-filter>
                 <action android:name="com.example.activitytest.ACTION_START" />

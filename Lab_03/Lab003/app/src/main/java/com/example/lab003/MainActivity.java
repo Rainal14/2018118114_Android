@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_layout);
 
-        Log.d("MainActivity", this.toString());  //test standard
+        Log.d("MainActivity", "栈id为：" + getTaskId());  //测试启动模式
 
         Button button1 = findViewById(R.id.button_1);  //button for test
         button1.setOnClickListener(new View.OnClickListener(){

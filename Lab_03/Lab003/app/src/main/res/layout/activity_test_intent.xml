@@ -33,4 +33,10 @@
         android:layout_height="wrap_content"
         android:text="显式intent跳转到MainActivity" />
 
+    <Button
+        android:id="@+id/button_toImplicitIntent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="显式intent跳转到ImplicitIntent活动" />
+
 </LinearLayout>

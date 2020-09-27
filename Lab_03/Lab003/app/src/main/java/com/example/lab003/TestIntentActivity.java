@@ -21,7 +21,7 @@ public class TestIntentActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test_intent);
-        Log.d("TestIntentActivity", this.toString());
+        Log.d("TestIntentActivity", "栈id为：" + getTaskId()); //测试启动模式
         Button button1 = findViewById(R.id.button_baidu);  //turn to http://www.baidu.com
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -68,6 +68,15 @@ public class TestIntentActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(TestIntentActivity.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        Button button6 = findViewById(R.id.button_toImplicitIntent);
+        button6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(TestIntentActivity.this, ImplicitIntent.class);
                 startActivity(intent);
             }
         });
