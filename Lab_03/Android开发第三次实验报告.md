@@ -65,3 +65,24 @@ button7.setOnClickListener(new View.OnClickListener() {
 2）启动虚拟机，多次点击按钮，logcat不会出现新的打印信息
 
 ![singleTop.PNG](https://github.com/Rainal14/2018118114_Android/blob/homework/Lab_03/Lab03_pic/singleTop.PNG?raw=true)
+
+
+
+3）在TestIntentActivity中添加通过显式intend跳转到MainActivity的按钮
+
+```java
+Button button5 = findViewById(R.id.button_toMain);
+        button5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(TestIntentActivity.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
+```
+
+
+
+4）在MainActivity通过显式intent跳转到TestIntentActivity，然后通过显式intent返回MainActivity，此时由于之前的MainActivity不在栈顶，所以新的activity会被创建
+
+![singleTop2.PNG](https://github.com/Rainal14/2018118114_Android/blob/homework/Lab_03/Lab03_pic/singleTop2.PNG?raw=true)
