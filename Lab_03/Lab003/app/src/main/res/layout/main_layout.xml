@@ -43,6 +43,6 @@
         android:id="@+id/button_standard"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="启动模式：standard" />
+        android:text="启动模式测试按钮" />
 
 </LinearLayout>

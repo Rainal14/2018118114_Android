@@ -27,4 +27,10 @@
         android:layout_height="wrap_content"
         android:text="传递数据给上一个活动并返回" />
 
+    <Button
+        android:id="@+id/button_toMain"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="显式intent跳转到MainActivity" />
+
 </LinearLayout>
