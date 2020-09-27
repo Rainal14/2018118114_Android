@@ -34,6 +34,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_layout);
 
+        Log.d("MainActivity", this.toString());  //test standard
+
         Button button1 = findViewById(R.id.button_1);  //button for test
         button1.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -86,6 +88,15 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, TestIntentActivity.class);
                 startActivityForResult(intent, 1);
+            }
+        });
+
+        Button button7 = findViewById(R.id.button_standard);
+        button7.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, MainActivity.class);
+                startActivity(intent);
             }
         });
     }
