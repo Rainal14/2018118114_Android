@@ -2,13 +2,13 @@
 
 ## 实验目的
 
-掌握四种活动启动模式的使用和原理
+掌握四种活动启动模式的使用和原理。
 
 ## 实验过程
 
 ### 1、standard启动模式
 
-1)在MainActivity（活动一）的布局文件中添加测试按钮。
+1）在MainActivity（活动一）的布局文件中添加测试按钮。
 
 ```main_layout.xml
 <Button
@@ -26,7 +26,7 @@ Button button7 = findViewById(R.id.button_standard);
 
 
 
-2)设置监听器，创建Intent，在MainActivity（活动一）的基础上启动MainActivity（活动一）。
+2）设置监听器，创建Intent，在MainActivity（活动一）的基础上启动MainActivity（活动一）。
 
 ```MainActivity
 button7.setOnClickListener(new View.OnClickListener() {
@@ -40,7 +40,7 @@ button7.setOnClickListener(new View.OnClickListener() {
 
 
 
-3)启动安卓虚拟设备，开始测试：点击两次“启动模式：standard”按钮
+3）启动安卓虚拟设备，开始测试：点击两次“启动模式：standard”按钮。
 
 ![standard_device.PNG](https://github.com/Rainal14/2018118114_Android/blob/homework/Lab_03/Lab03_pic/standard_device.PNG?raw=true)
 
@@ -56,7 +56,7 @@ button7.setOnClickListener(new View.OnClickListener() {
 
 ### 2、singleTop启动模式
 
-1)在AndroidManifest.xml中修改MainActivity（活动一）的启动模式为singleTop
+1）在AndroidManifest.xml中修改MainActivity（活动一）的启动模式为singleTop
 
 ```AndroidManifest.xml
 <activity
@@ -72,13 +72,13 @@ button7.setOnClickListener(new View.OnClickListener() {
 
 
 
-2)启动虚拟机，多次点击按钮，logcat不会出现新的打印信息
+2）启动虚拟机，多次点击按钮，logcat不会出现新的打印信息。
 
 ![singleTop.PNG](https://github.com/Rainal14/2018118114_Android/blob/homework/Lab_03/Lab03_pic/singleTop.PNG?raw=true)
 
 
 
-3)在TestIntentActivity（活动二）中添加通过显式intend跳转到MainActivity（活动一）的按钮
+3）在TestIntentActivity（活动二）中添加通过显式intend跳转到MainActivity（活动一）的按钮。
 
 ```TestIntentActivity
 Button button5 = findViewById(R.id.button_toMain);
@@ -93,7 +93,7 @@ Button button5 = findViewById(R.id.button_toMain);
 
 
 
-4)在MainActivity（活动一）通过显式intent跳转到TestIntentActivity（活动二），然后通过显式intent返回MainActivity（活动一），此时由于之前的MainActivity（活动一）不在栈顶，所以新的MainActivity（活动一）实例会被创建
+4）在MainActivity（活动一）通过显式intent跳转到TestIntentActivity（活动二），然后通过显式intent返回MainActivity（活动一），此时由于之前的MainActivity（活动一）不在栈顶，所以新的MainActivity（活动一）实例会被创建。
 
 ![singleTop2.PNG](https://github.com/Rainal14/2018118114_Android/blob/homework/Lab_03/Lab03_pic/singleTop2.PNG?raw=true)
 
@@ -101,7 +101,7 @@ Button button5 = findViewById(R.id.button_toMain);
 
 ### 3、singleTask启动模式
 
-1)在AndroidManifest.xml中修改MainActivity（活动一）的启动模式为singleTask
+1）在AndroidManifest.xml中修改MainActivity（活动一）的启动模式为singleTask。
 
 ```AndroidManifest.xml
 <activity
@@ -117,7 +117,7 @@ Button button5 = findViewById(R.id.button_toMain);
 
 
 
-2)在MainActivity（活动一）中添加onRestart()方法
+2）在MainActivity（活动一）中添加onRestart()方法。
 
 ```MainActivity
 @Override
@@ -137,7 +137,7 @@ Button button5 = findViewById(R.id.button_toMain);
 
 
 
-3)在TestIntentActivity（活动二）中添加onDestroy()方法
+3）在TestIntentActivity（活动二）中添加onDestroy()方法。
 
 ```TestIntentActivity
 @Override
@@ -147,7 +147,7 @@ Button button5 = findViewById(R.id.button_toMain);
     }
 ```
 
-并在onCreate()中添加Log调试信息
+并在onCreate()中添加Log调试信息。
 
 ```TestIntentActivity
 Log.d("TestIntentActivity", this.toString());
@@ -155,7 +155,7 @@ Log.d("TestIntentActivity", this.toString());
 
 
 
-4)在TestIntentActivity（活动二）跳转到MainActivity（活动一）时，由于此时在栈顶的活动是TestIntentActivity（活动二），所以TestIntentActivity（活动二）的onDestroy()函数会被调用，MainActivity（活动一）被重启，此时MainActivity（活动一）回到栈顶，避免了同时创建多个相同活动的情况发生。
+4）在TestIntentActivity（活动二）跳转到MainActivity（活动一）时，由于此时在栈顶的活动是TestIntentActivity（活动二），所以TestIntentActivity（活动二）的onDestroy()函数会被调用，MainActivity（活动一）被重启，此时MainActivity（活动一）回到栈顶，避免了同时创建多个相同活动的情况发生。
 
 ![singleTask.PNG](https://github.com/Rainal14/2018118114_Android/blob/homework/Lab_03/Lab03_pic/singleTask.PNG?raw=true)
 
@@ -163,7 +163,7 @@ Log.d("TestIntentActivity", this.toString());
 
 ### 4、singleInstance启动方式
 
-1)在AndroidManifest.xml中修改TestIntentActivity（活动二）的启动模式为singleInstance
+1）在AndroidManifest.xml中修改TestIntentActivity（活动二）的启动模式为singleInstance。
 
 ```AndroidManifest.xml
 <activity
@@ -181,7 +181,7 @@ Log.d("TestIntentActivity", this.toString());
 
 
 
-2)修改MainActivity（活动一）和TestIntentActivity（活动二）的onCreate()方法中的Log信息
+2）修改MainActivity（活动一）和TestIntentActivity（活动二）的onCreate()方法中的Log信息。
 
 ```MainActivity
 Log.d("MainActivity", "栈id为：" + getTaskId());  //测试启动模式
@@ -193,7 +193,7 @@ Log.d("TestIntentActivity", "栈id为：" + getTaskId()); //测试启动模式
 
 
 
-3)TestIntentActivity（活动二）的布局文件中添加按钮，并在TestIntentActivity（活动二）中创建按钮引用和监听器，实现点击时通过显式intent跳转到ImplicitIntent（活动三）的功能
+3）TestIntentActivity（活动二）的布局文件中添加按钮，并在TestIntentActivity（活动二）中创建按钮引用和监听器，实现点击时通过显式intent跳转到ImplicitIntent（活动三）的功能。
 
 ```activity_test_intent.xml
 <Button
@@ -216,7 +216,7 @@ Button button6 = findViewById(R.id.button_toImplicitIntent);
 
 
 
-4)修改ImplicitActivity（活动三）的onCreate()方法代码，添加Log信息
+4）修改ImplicitActivity（活动三）的onCreate()方法代码，添加Log信息。
 
 ```ImplicitIntent
 public class ImplicitIntent extends AppCompatActivity {
@@ -231,7 +231,7 @@ public class ImplicitIntent extends AppCompatActivity {
 
 
 
-5)打开应用（创建MainActivity即活动一）时输出的栈id为72，此时通过显式intent跳转到TestIntentActivity（活动二），输出的栈id为73，在TestIntentActivity（活动二）里跳转到ImplicitActivity（活动三）时输出的栈id为72。由此可见TestIntentActivity（活动二）和MainActivity（活动一）、ImplicitActivity（活动三）位于不同的栈里。TestIntentActivity（活动二）创建了新的返回栈以实现这个活动的实例可以和其他应用程序共享。
+5）打开应用（创建MainActivity即活动一）时输出的栈id为72，此时通过显式intent跳转到TestIntentActivity（活动二），输出的栈id为73，在TestIntentActivity（活动二）里跳转到ImplicitActivity（活动三）时输出的栈id为72。由此可见TestIntentActivity（活动二）和MainActivity（活动一）、ImplicitActivity（活动三）位于不同的栈里。TestIntentActivity（活动二）创建了新的返回栈以实现这个活动的实例可以和其他应用程序共享。
 
 ![singleInstance.PNG](https://github.com/Rainal14/2018118114_Android/blob/homework/Lab_03/Lab03_pic/singleInstance.PNG?raw=true)
 
