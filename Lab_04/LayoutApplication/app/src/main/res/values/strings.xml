@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">LayoutApplication</string>
+    <string name="test_name">这是一个没有功能的测试布局app</string>
+</resources>
