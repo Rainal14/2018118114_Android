@@ -8,7 +8,7 @@
 
 ### 1、standard启动模式
 
-1)在MainActivity（活动一）的布局文件中中添加测试按钮。
+1)在MainActivity（活动一）的布局文件中添加测试按钮。
 
 ```main_layout.xml
 <Button
