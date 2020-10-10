@@ -1,6 +1,8 @@
 package com.example.recyclerviewapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
@@ -18,9 +20,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         initAnimals();
-        AnimalAdapter adapter = new AnimalAdapter(MainActivity.this, R.layout.animal_item, animalList);
-        ListView listView = (ListView) findViewById(R.id.list_view);
-        listView.setAdapter(adapter);
+        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(layoutManager);
+        AnimalAdapter adapter = new AnimalAdapter(animalList);
+        recyclerView.setAdapter(adapter);
     }
 
     private void initAnimals(){
