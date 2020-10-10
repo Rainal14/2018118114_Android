@@ -205,3 +205,98 @@ implementation 'androidx.recyclerview:recyclerview:1.0.0'
 
 
 
+定义适配器
+
+```java
+public class AnimalAdapter extends RecyclerView.Adapter<AnimalAdapter.ViewHolder> {
+
+    private List<Animal> mAnimalList;
+
+    static class ViewHolder extends RecyclerView.ViewHolder{
+        ImageView animalImage;
+        TextView animalName;
+
+        public ViewHolder(View view){
+            super(view);
+            animalImage = (ImageView) view.findViewById(R.id.animal_image);
+            animalName = (TextView) view.findViewById(R.id.animal_name);
+        }
+    }
+
+    public  AnimalAdapter(List<Animal> animalList){
+        mAnimalList = animalList;
+    }
+
+    @Override
+    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType){
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.animal_item, parent, false);
+        ViewHolder holder = new ViewHolder(view);
+        return holder;
+    }
+
+    @Override
+    public void onBindViewHolder(ViewHolder holder, int position) {
+        Animal animal = mAnimalList.get(position);
+        holder.animalImage.setImageResource(animal.getImageID());
+        holder.animalName.setText(animal.getName());
+    }
+
+    @Override
+    public int getItemCount() {
+        return mAnimalList.size();
+    }
+}
+```
+
+
+
+修改主活动
+
+```java
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        initAnimals();
+        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(layoutManager);
+        AnimalAdapter adapter = new AnimalAdapter(animalList);
+        recyclerView.setAdapter(adapter);
+    }
+```
+
+
+
+运行效果如下
+
+【recyrun01】
+
+文字被遮挡
+
+修改图片控件大小
+
+```xml
+<ImageView
+        android:id="@+id/animal_image"
+        android:layout_width="50dp"
+        android:layout_height="50dp"/>
+```
+
+效果如下
+
+【rerun02】
+
+问题未解决
+
+将主容器宽度和高度修改为包裹文本
+
+```xml
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+</LinearLayout>
+```
+
+问题解决
+
+【pic_recyclerview_run03.PNG】
