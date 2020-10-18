@@ -2,6 +2,10 @@
 
 ## 实验目的
 
+通过ListView和RecyclerView了解安卓的基本布局和控件的应用
+
+
+
 ## 实验过程
 
 ### 一、List View
@@ -181,10 +185,6 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-## 总结
-
-
-
 添加依赖：
 
 ```gradle
@@ -300,3 +300,135 @@ public class AnimalAdapter extends RecyclerView.Adapter<AnimalAdapter.ViewHolder
 问题解决
 
 【pic_recyclerview_run03.PNG】
+
+
+
+#### 水平滚动：
+
+修改animal_item.xml,设置总控件为垂直方向
+
+```xml
+android:orientation="vertical"
+android:layout_width="100dp"
+```
+
+
+
+将ImageView和TextView的位置设置为水平居中
+
+```xml
+android:layout_gravity="center_horizontal
+```
+
+
+
+修改主活动List的排列方向
+
+```java
+layoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
+```
+
+
+
+实验截图：
+
+【recyclerview horizontal】
+
+
+
+#### 网格布局GirdLayoutManager：
+
+主活动onCreate()添加代码
+
+```java
+StaggeredGridLayoutManager layoutManager = new StaggeredGridLayoutManager(3, StaggeredGridLayoutManager.VERTICAL);
+```
+
+
+
+给每一个动物对象生成随机长度的文本
+
+```java
+Animal dog = new Animal(getRandomLengthName("Dog"), R.drawable.dog);
+            animalList.add(dog);
+Animal cat = new Animal(getRandomLengthName("Cat"), R.drawable.cat);
+            animalList.add(cat);
+......
+......
+```
+
+ 
+
+获取随机名字文本长度函数
+
+```java
+    private String getRandomLengthName(String name){
+        Random random = new Random();
+        int length = random.nextInt(20) + 1;
+        StringBuilder builder = new StringBuilder();
+        for(int i = 0; i < length; i++){
+            builder.append(name);
+        }
+        return builder.toString();
+    }
+```
+
+
+
+[pic_recyclerview_net_run01]
+
+
+
+#### 图片、文本点击事件
+
+在ViewHolder中创建新的animalView变量保存AnimalView对象
+
+```java
+    static class ViewHolder extends RecyclerView.ViewHolder{
+        
+        View animalView;
+        
+        ImageView animalImage;
+        TextView animalName;
+
+        public ViewHolder(View view){
+            super(view);
+            
+            animalView = view;
+            
+            animalImage = (ImageView) view.findViewById(R.id.animal_image);
+            animalName = (TextView) view.findViewById(R.id.animal_name);
+        }
+    }
+```
+
+
+
+onCreateViewHolder中为新建的animalView分别创建子控件ImageVeiw和TextView的点击事件
+
+```java
+        holder.animalView.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view1){
+                int position = holder.getAdapterPosition();
+                Animal animal = mAnimalList.get(position);
+                Toast.makeText(view1.getContext(),"你点击了文本" + animal.getName(), Toast.LENGTH_SHORT).show();
+            }
+        });
+        holder.animalImage.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view1){
+                int position = holder.getAdapterPosition();
+                Animal animal = mAnimalList.get(position);
+                Toast.makeText(view1.getContext(), "你点击了图片" + animal.getName(), Toast.LENGTH_SHORT).show();
+            }
+        });
+```
+
+
+
+运行结果
+
+【clickimage】
+
+【clicktextview】
