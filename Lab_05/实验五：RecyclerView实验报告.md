@@ -164,7 +164,7 @@ public class MainActivity extends AppCompatActivity {
 
 运行截图如下
 
-【run01】
+![pic_listview_run01.PNG](https://github.com/Rainal14/2018118114_Android/blob/homework/Lab_05/Pic/pic_listview_run01.PNG?raw=true)
 
 图片分辨率过大遮挡文字，导致动物名字无法正常显示。
 
@@ -179,7 +179,7 @@ public class MainActivity extends AppCompatActivity {
 
 问题解决，图片和名字正常显示：
 
-【run02】
+![pic_listview_run02.PNG](https://github.com/Rainal14/2018118114_Android/blob/homework/Lab_05/Pic/pic_listview_run02.PNG?raw=true)
 
 ### 二、Recycler View
 
@@ -269,7 +269,7 @@ public class AnimalAdapter extends RecyclerView.Adapter<AnimalAdapter.ViewHolder
 
 运行效果如下
 
-【recyrun01】
+![pic_recyclerview_run01.PNG](https://github.com/Rainal14/2018118114_Android/blob/homework/Lab_05/Pic/pic_recyclerview_run01.PNG?raw=true)
 
 文字被遮挡
 
@@ -284,7 +284,7 @@ public class AnimalAdapter extends RecyclerView.Adapter<AnimalAdapter.ViewHolder
 
 效果如下
 
-【rerun02】
+![pic_recyclerview_run02.PNG](https://github.com/Rainal14/2018118114_Android/blob/homework/Lab_05/Pic/pic_recyclerview_run02.PNG?raw=true)
 
 问题未解决
 
@@ -299,7 +299,7 @@ public class AnimalAdapter extends RecyclerView.Adapter<AnimalAdapter.ViewHolder
 
 问题解决
 
-【pic_recyclerview_run03.PNG】
+![pic_recyclerview_run03.PNG](https://github.com/Rainal14/2018118114_Android/blob/homework/Lab_05/Pic/pic_recyclerview_run03.PNG?raw=true)
 
 
 
@@ -332,7 +332,7 @@ layoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
 
 实验截图：
 
-【recyclerview horizontal】
+![pic_recyclerview_horizontal.PNG](https://github.com/Rainal14/2018118114_Android/blob/homework/Lab_05/Pic/pic_recyclerview_horizontal.PNG?raw=true)
 
 
 
@@ -375,7 +375,7 @@ Animal cat = new Animal(getRandomLengthName("Cat"), R.drawable.cat);
 
 
 
-[pic_recyclerview_net_run01]
+![pic_recyclerview_net_run01.PNG](https://github.com/Rainal14/2018118114_Android/blob/homework/Lab_05/Pic/pic_recyclerview_net_run01.PNG?raw=true)
 
 
 
@@ -429,6 +429,6 @@ onCreateViewHolder中为新建的animalView分别创建子控件ImageVeiw和Text
 
 运行结果
 
-【clickimage】
+![clickimage.PNG](https://github.com/Rainal14/2018118114_Android/blob/homework/Lab_05/Pic/clickimage.PNG?raw=true)
 
-【clicktextview】
+![clickview.PNG](https://github.com/Rainal14/2018118114_Android/blob/homework/Lab_05/Pic/clickview.PNG?raw=true)
