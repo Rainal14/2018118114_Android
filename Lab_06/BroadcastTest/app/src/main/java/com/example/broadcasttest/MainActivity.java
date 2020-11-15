@@ -6,7 +6,12 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.net.ConnectivityManager;
+import android.net.Network;
+import android.net.NetworkCapabilities;
+import android.net.NetworkInfo;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
@@ -34,7 +39,16 @@ public class MainActivity extends AppCompatActivity {
     class NetworkChangeReceiver extends BroadcastReceiver{
         @Override
         public void onReceive(Context context, Intent intent){
-            Toast.makeText(context, "network changes", Toast.LENGTH_SHORT).show();
+            ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+            Network networks = connectivityManager.getActiveNetwork();
+            NetworkCapabilities networkCapabilities = connectivityManager.getNetworkCapabilities(networks);
+            if (networkCapabilities != null) {
+                if (networkCapabilities.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR)) {
+                    Toast.makeText(context, "移动网络", Toast.LENGTH_SHORT).show();
+                }
+            } else {
+                Toast.makeText(context, "网络不可用", Toast.LENGTH_SHORT).show();
+            }
         }
     }
 }
